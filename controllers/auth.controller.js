@@ -55,7 +55,7 @@ export const login = async (req, res) => {
   bcrypt.compare(password, user.password, (err, result) => {
     if (result) {
       const accessToken = encodeToken({ userId: user.id });
-      return res.json({ accessToken });
+      return res.json({ userId: user.id , accessToken });
     } else {
       return returnInvalidCredentials(res);
     }
